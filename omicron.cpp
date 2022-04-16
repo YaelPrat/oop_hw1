@@ -4,5 +4,5 @@
 
 #include "omicron.h"
  void omicron::printHey() {
-     std::cout << "Hello, World! from omicron" << std::endl;
+     std::cout << "Hello, World! from omicron " << this->getATCG()<< std::endl;
  }

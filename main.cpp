@@ -16,14 +16,13 @@ int main() {
 
     SARS_COV_2 *sss = new Alpha();
     colony.push_back(sss);
-
+    string testString[3] = {"abc","cde","aba"};
+    int j=0;
     for(auto i= colony.begin(); i !=colony.end();i++){
-//        i.printHey();
-//    cout<<*i->printHey()<<endl;
+        (*i)->setATCG(testString[j]);
+        j++;
         (*i)->printHey();
+        cout << "Target test"<<endl<<(*i)->adjustment("aba",3)<<endl;
     }
-//    cout<<typeid(colony.begin()).name();
-
-//    std::cout << "Hello, World!" << std::endl;
     return 0;
 }

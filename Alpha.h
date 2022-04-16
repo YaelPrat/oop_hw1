@@ -8,6 +8,9 @@
 
 
 class Alpha : public SARS_COV_2{
+public:
+    Alpha();
+    Alpha(std::string s);
     void printHey();
 };
 

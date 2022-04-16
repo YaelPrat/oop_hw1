@@ -3,6 +3,15 @@
 //
 
 #include "Alpha.h"
-void Alpha::printHey() {
-    std::cout << "Hello, World! from Alpha" << std::endl;
+//c`tors:
+Alpha::Alpha(){
 }
+Alpha::Alpha(std::string s) : SARS_COV_2(s) {
+
+}
+
+void Alpha::printHey() {
+    std::cout << "Hello, World! from Alpha "<< this->getATCG() << std::endl;
+}
+
+

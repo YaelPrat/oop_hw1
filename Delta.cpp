@@ -4,5 +4,5 @@
 
 #include "Delta.h"
 void Delta::printHey() {
-    std::cout << "Hello, World! from Delta" << std::endl;
+    std::cout << "Hello, World! from Delta"<< this->getATCG() << std::endl;
 }
