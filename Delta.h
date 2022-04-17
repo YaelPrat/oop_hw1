@@ -9,7 +9,9 @@
 
 class Delta: public SARS_COV_2{
 
+public:
     void printHey();
+    void updateSingleVirus();
 };
 
 
