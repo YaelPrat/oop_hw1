@@ -4,9 +4,17 @@
 
 #include "Delta.h"
 using namespace std;
+Delta::Delta(){
 
+}
+Delta::Delta(std::string s): SARS_COV_2(s) {
+
+}
+Delta::Delta(std::string s,float prob): SARS_COV_2(s,prob) {
+
+}
 void Delta::printHey() {
-    std::cout << "Hello, World! from Delta"<< this->getATCG() << std::endl;
+    std::cout << "Hello, World! from Delta "<< this->getATCG() << std::endl;
 }
 
 void Delta::updateSingleVirus() {
@@ -35,4 +43,8 @@ void Delta::updateSingleVirus() {
             }
 
     }
+}
+
+void Delta::tostring() {
+    cout<<"d "<<getATCG()<<endl;
 }

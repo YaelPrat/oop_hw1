@@ -10,8 +10,12 @@
 class omicron : public SARS_COV_2{
 
 public:
+    omicron();
+    omicron(std::string s);
+    omicron(std::string s, float prob);
     void printHey();
     void updateSingleVirus();
+    void tostring();
 
 };
 

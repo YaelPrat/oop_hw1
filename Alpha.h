@@ -14,6 +14,7 @@ public:
     Alpha(std::string s);
     void printHey();
     void updateSingleVirus();
+    void tostring();
 };
 
 

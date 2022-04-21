@@ -8,7 +8,7 @@ using namespace std;
 //c`tors:
 Alpha::Alpha(){
 }
-Alpha::Alpha(std::string s) : SARS_COV_2(s) {
+Alpha::Alpha(std::string s) : SARS_COV_2(s,0.37) {
 
 }
 
@@ -38,4 +38,18 @@ void Alpha::updateSingleVirus() {
             }
 
     }
+}
+
+void Alpha::tostring() {
+//    string s1="";
+//    string s= getATCG();
+//    for(int i=0;i<s.length();i++)
+//    {
+//        char c= getSingleATCG(i);
+//            s1=s1+c +" ";
+////            cout<<getSingleATCG(i);
+//    }
+//    cout<<endl<<s1<<endl;
+    cout<<"a "<<getATCG()<<endl;
+//    cout<<"a "<<s1<<endl;
 }

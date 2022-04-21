@@ -30,7 +30,7 @@ void SARS_COV_2::setATCG(std::string newATCG) {
     this->atcg= newATCG;
 }
 
-float SARS_COV_2::adjustment(const char* targetString, int len) {
+float SARS_COV_2::adjustment(string targetString, int len) {
     int cnt=0;
     for(int i=0; i<len; i++){
 //        std::cout<<"target "<<targetString[i]<<" this atc "<<this->getSingleATCG(i)<<std::endl;
@@ -59,6 +59,28 @@ char SARS_COV_2::getSingleATCG(int i) {
 
 void SARS_COV_2::setSingleATCG(int i,char c) {
     this->atcg[i]= c;
+}
+
+void SARS_COV_2::setATCGByIndex(int i,  string s) {
+     int k=0;
+    for (int j = i; j <s.length()+i ; ++j) {
+            this->atcg[j]= s[k++];
+    }
+}
+string SARS_COV_2::getATCGByIndex(int i,int j){
+return this->atcg.substr(i,j);
+ }
+
+float SARS_COV_2::getPower() {
+    return this->power;
+}
+
+void SARS_COV_2::setPower(float power) {
+    this->power= power;
+}
+
+void SARS_COV_2::tostring() {
+    cout<<"covid sars 2 "<< this->atcg<<endl;
 }
 
 

@@ -10,8 +10,13 @@
 class Delta: public SARS_COV_2{
 
 public:
+    Delta();
+    Delta(std::string s);
+    Delta(std::string s, float prob);
     void printHey();
     void updateSingleVirus();
+    void tostring();
+
 };
 
 

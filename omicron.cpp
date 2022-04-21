@@ -4,7 +4,13 @@
 
 #include "omicron.h"
 using namespace std;
+omicron::omicron() {
 
+}
+omicron::omicron(std::string s): SARS_COV_2(s) {
+
+}
+omicron::omicron(std::string s, float prob):SARS_COV_2(s,prob) {}
  void omicron::printHey() {
      std::cout << "Hello, World! from omicron " << this->getATCG()<< std::endl;
  }
@@ -38,4 +44,8 @@ void omicron::updateSingleVirus() {
         }
 
     }
+}
+
+void omicron::tostring() {
+    cout<<"o "<<getATCG()<<endl;
 }
