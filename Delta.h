@@ -14,11 +14,8 @@ public:
     Delta(std::string s);
     Delta(std::string s, float prob);
     virtual ~Delta();
-    void printHey();
     void updateSingleVirus();
     std::string tostring();
-    std::string printVirusRefcnt();
-//    friend std::ostream& operator<<(std::ostream& os,  Delta& delta);
 
 };
 

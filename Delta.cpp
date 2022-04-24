@@ -14,15 +14,12 @@ Delta::Delta(std::string s): SARS_COV_2(s) {
 Delta::Delta(std::string s,float prob): SARS_COV_2(s,prob) {
 
 }
-void Delta::printHey() {
-    std::cout << "Hello, World! from Delta "<< this->getATCG() << std::endl;
-}
 
 void Delta::updateSingleVirus() {
     string s = getATCG();
     srand((unsigned)time(0));
     bool yesProb;
-    for(int i=0; i<s.length();i++){
+    for(unsigned i=0; i< s.length();i++){
             if(getSingleATCG(i) == 'A'){
                 yesProb = (rand()%100)<getProb()*100;
                 if(yesProb) {
@@ -48,23 +45,15 @@ void Delta::updateSingleVirus() {
 
 string Delta::tostring() {
     string spacesAtcg;
-    for (int i = 0; i < getATCG().length(); ++i) {
+    for (unsigned i = 0; i < getATCG().length(); ++i) {
         spacesAtcg = spacesAtcg+ getSingleATCG(i);
         if (i!=getATCG().length()-1) spacesAtcg+=' ';
     }
 return "d "+spacesAtcg;
 }
-string Delta::printVirusRefcnt(){
-   string s= "d "+getATCG()+" "+ to_string(getRefCount());
-    return s;
-}
+
 
 Delta::~Delta() {
 
 }
 
-//ostream& operator<<(ostream& os,  Delta& delta)
-//{
-//    os << "d "<<(delta).getATCG()<<" "<< to_string((delta).getRefCount());
-//    return os;
-//}

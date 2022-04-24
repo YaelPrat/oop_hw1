@@ -13,11 +13,8 @@ public:
     omicron();
     omicron(std::string s);
     omicron(std::string s, float prob);
-    void printHey();
     void updateSingleVirus();
     std::string tostring();
-    std::string printVirusRefcnt();
-//    friend std::ostream& operator<<(std::ostream& os,  omicron& om);
 virtual ~omicron();
 
 };

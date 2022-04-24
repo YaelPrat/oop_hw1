@@ -12,9 +12,7 @@
 class Simulation {
 public:
     void choose2viruses(int *i, int* j, int size);
-
     void choose2indexes(int *i, int *j, int dim);
-
     void switchStrings(int i, int j, int s, int t,std::vector<SARS_COV_2 *> * colony);
     void groupUpdate(int dim,std::vector<SARS_COV_2 *> * colony ,std::vector<SARS_COV_2*> * weakest2 );
     void printColony(std::vector<SARS_COV_2 *> * colony ,bool withPower);

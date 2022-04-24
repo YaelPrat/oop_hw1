@@ -12,12 +12,9 @@ class Alpha : public SARS_COV_2{
 public:
     Alpha();
     Alpha(std::string s);
-    void printHey();
     void updateSingleVirus();
     std::string tostring();
-    std::string printVirusRefcnt();
     virtual ~Alpha();
-//    friend std::ostream& operator<<(std::ostream& os,  Alpha& alpha);
 };
 
 

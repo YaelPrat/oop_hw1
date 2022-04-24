@@ -50,16 +50,6 @@ void Simulation::printColony(vector<SARS_COV_2 *> * colony, bool withPower){
         } else  cout<<(*i)->tostring()<<endl;
     }
 
-//SARS_COV_2 *sc = new SARS_COV_2();
-//sc->setATCG("sars");
-//omicron * o = new omicron("omicrom");
-//Delta * d= new Delta("delta");
-//Alpha * a = new Alpha("alpha");
-//cout<<*sc<<endl;
-//cout<<*o<<num<<endl;
-//cout<<*d<<endl;
-//cout<<*a<<endl;
-
 }
 void Simulation::groupUpdate(int dim,vector<SARS_COV_2 *> * ancestors,vector<SARS_COV_2*> *weakest2 ){
         int i,j;
