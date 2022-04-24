@@ -8,12 +8,12 @@
 using namespace std;
 
 
-void testFiles(){
+void run(){
     vector<SARS_COV_2 *> colony;//change dooring the simulation
     vector<SARS_COV_2*> ancestors;
     SARS_COV_2 * strongest= new SARS_COV_2();//the stronger virus of all viruses
     strongest->setPower(0);
-    vector<SARS_COV_2*> weakest2;// 2 weakest viruses in each round.
+//    vector<SARS_COV_2*> weakest2;// 2 weakest viruses in each round.
     Simulation* simulation= new Simulation();
     string line;
     int dim;//dimension of the ATCG string
@@ -68,17 +68,17 @@ void testFiles(){
                     line.erase(0,1);
                     ancestors.push_back(new omicron(line,2/dim));
                     colony.push_back(new omicron(line,2/dim));
-//                    colony[colony.size()-1]->setParent(ancestors[ancestors.size()-1]);
+                    colony[colony.size()-1]->setParent(ancestors[ancestors.size()-1]);
                 } if(line[0]=='d'){
                     line.erase(0,1);
                     ancestors.push_back(new Delta(line,1/dim));
                     colony.push_back(new Delta(line,1/dim));
-//                    colony[colony.size()-1]->setParent(ancestors[ancestors.size()-1]);
+                    colony[colony.size()-1]->setParent(ancestors[ancestors.size()-1]);
                 } if(line[0]=='a'){
                     line.erase(0,1);
                     ancestors.push_back(new Alpha(line));
                     colony.push_back(new Alpha(line));
-//                    colony[colony.size()-1]->setParent(ancestors[ancestors.size()-1]);
+                    colony[colony.size()-1]->setParent(ancestors[ancestors.size()-1]);
                 }
             }
         }
@@ -87,7 +87,6 @@ void testFiles(){
     }
     else cout << "Unable to open file";
     for(auto i= ancestors.begin(); i !=ancestors.end();i++){
-//        (*i)->setIsAncestor(true);
         (*i)->setRefCount(1);
     }
 //The simulation:
@@ -112,7 +111,7 @@ int iteration=0;
             }
 
 //find the 2 weakest:
-            if(min[0] !=NULL &&min[1]!=NULL){
+            if(min[0] !=NULL && min[1]!=NULL){
                 if((*min[0]).getPower() > (*i)->getPower() ||(*min[1]).getPower() > (*i)->getPower() ){
                     min.push_back(*i);
                     std::sort(min.begin(), min.end(),[](SARS_COV_2 *a,SARS_COV_2 *b)->bool{
@@ -141,8 +140,6 @@ int iteration=0;
 
 
 int main() {
-testFiles();
-
-
+    run();
     return 0;
 }

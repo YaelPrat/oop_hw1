@@ -115,10 +115,13 @@ SARS_COV_2* SARS_COV_2::getParent(){
  }
 void SARS_COV_2::setParent(SARS_COV_2* parent){ //updates the counter of the parent.
     this->ancestor.parent = parent;
-    parent->addRefCount();
+//    parent->addRefCount();
  }
 void SARS_COV_2::decRefCount(){
-    this->ancestor.refCounter--;
+     if(this->ancestor.refCounter == 0){
+//         delete the parent?
+     }
+    else this->ancestor.refCounter--;
  }
 void SARS_COV_2::addRefCount(){
     this->ancestor.refCounter++;

@@ -62,12 +62,21 @@ void Simulation::printColony(vector<SARS_COV_2 *> * colony, bool withPower){
 
 }
 void Simulation::groupUpdate(int dim,vector<SARS_COV_2 *> * ancestors,vector<SARS_COV_2*> *weakest2 ){
-    int i,j;
-    int s,t;
-    choose2viruses(&i,&j, int(ancestors->size()));
-    choose2indexes(&s,&t, dim);
-    switchStrings(i,j,s,t,ancestors);
-    (*weakest2)[0]->setATCG((*ancestors)[i]->getATCG());
-    (*weakest2)[1]->setATCG((*ancestors)[j]->getATCG());
+        int i,j;
+        int s,t;
+        choose2viruses(&i,&j, int(ancestors->size()));
+        choose2indexes(&s,&t, dim);
+        switchStrings(i,j,s,t,ancestors);
+        (*weakest2)[0]->getParent()->decRefCount();
+        (*weakest2)[1]->getParent()->decRefCount();
+
+        (*weakest2)[0]->setATCG((*ancestors)[i]->getATCG());
+        (*weakest2)[1]->setATCG((*ancestors)[j]->getATCG());
+
+        (*weakest2)[0]->setParent((*ancestors)[i]);
+        (*weakest2)[1]->setParent((*ancestors)[j]);
+
+        (*ancestors)[i]->addRefCount();
+        (*ancestors)[j]->addRefCount();
 
 }

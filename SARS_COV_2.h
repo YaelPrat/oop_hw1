@@ -10,7 +10,7 @@ class SARS_COV_2 {
 private:
     struct ancestor_{ // the ref counter
         SARS_COV_2 * parent=NULL;
-        int refCounter=0;
+        int refCounter=-1;
     };
     std::string atcg;
     float prob;
