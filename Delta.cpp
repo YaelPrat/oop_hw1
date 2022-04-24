@@ -6,6 +6,7 @@
 using namespace std;
 Delta::Delta(){
 
+
 }
 Delta::Delta(std::string s): SARS_COV_2(s) {
 
@@ -45,6 +46,25 @@ void Delta::updateSingleVirus() {
     }
 }
 
-void Delta::tostring() {
-    cout<<"d "<<getATCG()<<endl;
+string Delta::tostring() {
+    string spacesAtcg;
+    for (int i = 0; i < getATCG().length(); ++i) {
+        spacesAtcg = spacesAtcg+ getSingleATCG(i);
+        if (i!=getATCG().length()-1) spacesAtcg+=' ';
+    }
+return "d "+spacesAtcg;
 }
+string Delta::printVirusRefcnt(){
+   string s= "d "+getATCG()+" "+ to_string(getRefCount());
+    return s;
+}
+
+Delta::~Delta() {
+
+}
+
+//ostream& operator<<(ostream& os,  Delta& delta)
+//{
+//    os << "d "<<(delta).getATCG()<<" "<< to_string((delta).getRefCount());
+//    return os;
+//}

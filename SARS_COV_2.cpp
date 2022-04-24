@@ -3,14 +3,12 @@
 //
 #include "SARS_COV_2.h"
 using namespace std;
-
+//struct ancestor;
  void SARS_COV_2::printHey() {
     std::cout << "Hello, World! from sars-cov-2 "<<this->atcg << std::endl;
 }
 
 SARS_COV_2::SARS_COV_2() {
-    this->atcg = "aaa";
-//    SARS_COV_2::printHey();
 }
 
 SARS_COV_2::SARS_COV_2(std::string s) {
@@ -20,11 +18,30 @@ SARS_COV_2::SARS_COV_2(std::string s) {
 SARS_COV_2::SARS_COV_2(std::string s, float prob) {
     this->atcg = s;
     this->prob = prob;
-//    SARS_COV_2::printHey();
 }
-
+SARS_COV_2::SARS_COV_2(std::string s, float prob,SARS_COV_2* parent) {
+    this->atcg = s;
+    this->prob = prob;
+    this->ancestor.parent=parent;
+}
+ SARS_COV_2::~SARS_COV_2(){
+     if (this->ancestor.parent== NULL){ //this is ancestor.
+         if (this->ancestor.refCounter == 0){
+//             cout<<"dtor"<<endl;
+             delete this;
+         } else{
+             cerr<<"You try to delete object that steal have pointers to."<<endl;
+         }
+     } else{ // not an ancestor.
+         (*this->ancestor.parent).decRefCount();
+     }
+}
 std::string SARS_COV_2::getATCG() {
-    return atcg;
+     string s= atcg;
+     if(s[s.size()-1] == '\r'){
+         s.erase(s.size() - 1);
+     }
+    return s;
 }
 void SARS_COV_2::setATCG(std::string newATCG) {
     this->atcg= newATCG;
@@ -33,7 +50,6 @@ void SARS_COV_2::setATCG(std::string newATCG) {
 float SARS_COV_2::adjustment(string targetString, int len) {
     int cnt=0;
     for(int i=0; i<len; i++){
-//        std::cout<<"target "<<targetString[i]<<" this atc "<<this->getSingleATCG(i)<<std::endl;
         if (targetString[i]==(this->atcg[i])){
             cnt++;
         }
@@ -79,9 +95,42 @@ void SARS_COV_2::setPower(float power) {
     this->power= power;
 }
 
-void SARS_COV_2::tostring() {
-    cout<<"covid sars 2 "<< this->atcg<<endl;
+string SARS_COV_2::tostring() {
+    return "covid sars 2 ";
+}
+
+SARS_COV_2::ancestor_ SARS_COV_2::getAncestor() {
+    return SARS_COV_2::ancestor_();
 }
 
 
+ int SARS_COV_2::getRefCount(){
+     return this->ancestor.refCounter;
+ }
+void SARS_COV_2::setRefCount(int newref){
+    this->ancestor.refCounter = newref;
+ }
+SARS_COV_2* SARS_COV_2::getParent(){
+    return this->ancestor.parent;
+ }
+void SARS_COV_2::setParent(SARS_COV_2* parent){ //updates the counter of the parent.
+    this->ancestor.parent = parent;
+    parent->addRefCount();
+ }
+void SARS_COV_2::decRefCount(){
+    this->ancestor.refCounter--;
+ }
+void SARS_COV_2::addRefCount(){
+    this->ancestor.refCounter++;
+ }
+
+string SARS_COV_2::printVirusRefcnt(){
+    return "";
+ }
+
+//ostream& operator<<(ostream& os,  SARS_COV_2& SC2)
+//{
+//    os <<SC2.type<<" "<< SC2.atcg << " " <<to_string(SC2.ancestor.refCounter) ;
+//    return os;
+//}
 

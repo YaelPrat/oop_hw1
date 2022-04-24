@@ -14,7 +14,10 @@ public:
     Alpha(std::string s);
     void printHey();
     void updateSingleVirus();
-    void tostring();
+    std::string tostring();
+    std::string printVirusRefcnt();
+    virtual ~Alpha();
+//    friend std::ostream& operator<<(std::ostream& os,  Alpha& alpha);
 };
 
 

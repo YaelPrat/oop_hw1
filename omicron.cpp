@@ -16,6 +16,7 @@ omicron::omicron(std::string s, float prob):SARS_COV_2(s,prob) {}
  }
 
 
+
 void omicron::updateSingleVirus() {
     string s = getATCG();
     srand((unsigned) time(0));
@@ -46,6 +47,24 @@ void omicron::updateSingleVirus() {
     }
 }
 
-void omicron::tostring() {
-    cout<<"o "<<getATCG()<<endl;
+string omicron::tostring() {
+    string spacesAtcg;
+    for (int i = 0; i < getATCG().length(); ++i) {
+        spacesAtcg = spacesAtcg+ getSingleATCG(i);
+        if (i!=getATCG().length()-1) spacesAtcg+=' ';
+    }
+    return "o "+spacesAtcg;
 }
+string omicron::printVirusRefcnt(){
+    return "o "+getATCG()+" "+ to_string(getRefCount());
+}
+
+omicron::~omicron() {
+}
+
+//ostream& operator<<(ostream& os,  omicron& om)
+//{
+//    string s = to_string((om).getRefCount());
+//    os << "o "<<(om).getATCG()<<" " +to_string((om).getRefCount());
+//    return os;
+//}

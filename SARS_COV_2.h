@@ -8,14 +8,21 @@
 
 class SARS_COV_2 {
 private:
-//    std::vector<std::string> atcg;
-std::string atcg;
+    struct ancestor_{ // the ref counter
+        SARS_COV_2 * parent=NULL;
+        int refCounter=0;
+    };
+    std::string atcg;
     float prob;
     float power;
+    ancestor_ ancestor;
+
 public:
     SARS_COV_2();
     SARS_COV_2(std::string s);
     SARS_COV_2(std::string s, float prob);
+    SARS_COV_2(std::string s, float prob,SARS_COV_2* parent);
+    virtual ~SARS_COV_2();
     virtual void printHey();
     virtual std::string getATCG();
     virtual void setATCG(std::string newATCG);
@@ -27,11 +34,23 @@ public:
     virtual void setATCGByIndex(int i,std::string s);
     virtual void setPower(float power);
     virtual float getPower();
-    virtual void tostring();
+    virtual ancestor_ getAncestor();
+
+    virtual int getRefCount();
+    virtual void setRefCount(int newref);
+    virtual SARS_COV_2* getParent();
+    virtual void setParent(SARS_COV_2* parent);
+    virtual void decRefCount();
+    virtual void addRefCount();
+    virtual std::string tostring();
+    virtual std::string printVirusRefcnt();
 
     //return the Adjustment of the ATCG string to given string
     float adjustment(std::string , int len);
     virtual void updateSingleVirus();
+//    friend std::ostream& operator<<(std::ostream& os,  SARS_COV_2& SC2);
+
+
 
 };
 

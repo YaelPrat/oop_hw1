@@ -7,6 +7,7 @@ using namespace std;
 
 //c`tors:
 Alpha::Alpha(){
+
 }
 Alpha::Alpha(std::string s) : SARS_COV_2(s,0.37) {
 
@@ -40,16 +41,25 @@ void Alpha::updateSingleVirus() {
     }
 }
 
-void Alpha::tostring() {
-//    string s1="";
-//    string s= getATCG();
-//    for(int i=0;i<s.length();i++)
-//    {
-//        char c= getSingleATCG(i);
-//            s1=s1+c +" ";
-////            cout<<getSingleATCG(i);
-//    }
-//    cout<<endl<<s1<<endl;
-    cout<<"a "<<getATCG()<<endl;
-//    cout<<"a "<<s1<<endl;
+string Alpha::tostring() {
+    string spacesAtcg;
+    for (int i = 0; i < getATCG().length(); ++i) {
+        spacesAtcg = spacesAtcg+ getSingleATCG(i);
+        if (i!=getATCG().length()-1) spacesAtcg+=' ';
+    }
+    return "a "+spacesAtcg;
 }
+
+string Alpha::printVirusRefcnt(){
+    return "a "+getATCG()+" "+ to_string(getRefCount());
+}
+
+Alpha::~Alpha() {
+
+}
+
+//ostream& operator<<(ostream& os,  Alpha& alpha)
+//{
+//    os << "a "<<(alpha).getATCG()<<" "<<to_string((alpha).getRefCount());
+//    return os;
+//}

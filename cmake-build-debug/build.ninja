@@ -102,6 +102,12 @@ build CMakeFiles/oop_hw1.dir/Delta.cpp.o: CXX_COMPILER__oop_hw1_Debug /cygdrive/
   OBJECT_DIR = CMakeFiles/oop_hw1.dir
   OBJECT_FILE_DIR = CMakeFiles/oop_hw1.dir
 
+build CMakeFiles/oop_hw1.dir/Simulation.cpp.o: CXX_COMPILER__oop_hw1_Debug /cygdrive/c/Users/Admin/CLionProjects/oop_hw1/Simulation.cpp || cmake_object_order_depends_target_oop_hw1
+  DEP_FILE = CMakeFiles/oop_hw1.dir/Simulation.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/oop_hw1.dir
+  OBJECT_FILE_DIR = CMakeFiles/oop_hw1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target oop_hw1
@@ -110,7 +116,7 @@ build CMakeFiles/oop_hw1.dir/Delta.cpp.o: CXX_COMPILER__oop_hw1_Debug /cygdrive/
 #############################################
 # Link the executable oop_hw1.exe
 
-build oop_hw1.exe: CXX_EXECUTABLE_LINKER__oop_hw1_Debug CMakeFiles/oop_hw1.dir/main.cpp.o CMakeFiles/oop_hw1.dir/SARS_COV_2.cpp.o CMakeFiles/oop_hw1.dir/omicron.cpp.o CMakeFiles/oop_hw1.dir/Alpha.cpp.o CMakeFiles/oop_hw1.dir/Delta.cpp.o
+build oop_hw1.exe: CXX_EXECUTABLE_LINKER__oop_hw1_Debug CMakeFiles/oop_hw1.dir/main.cpp.o CMakeFiles/oop_hw1.dir/SARS_COV_2.cpp.o CMakeFiles/oop_hw1.dir/omicron.cpp.o CMakeFiles/oop_hw1.dir/Alpha.cpp.o CMakeFiles/oop_hw1.dir/Delta.cpp.o CMakeFiles/oop_hw1.dir/Simulation.cpp.o
   FLAGS = -g
   LINK_FLAGS = -Wl,--enable-auto-import
   OBJECT_DIR = CMakeFiles/oop_hw1.dir
